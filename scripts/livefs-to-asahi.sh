@@ -1,11 +1,10 @@
 #!/bin/bash
 
-set -x
 set -e
 
-EFI_UUID=2ABF-9F91
-ROOT_UUID=87c6b0ce-3bb6-4dc2-9298-3a799bbb5994
-BOOT_UUID=7cd3f710-4e54-4ded-834d-3dff58521005
+EFI_UUID=$(uuidgen | tr '[a-z]' '[A-Z]' | cut -c1-8 | fold -w4 | paste -sd '-')
+ROOT_UUID=$(uuidgen)
+BOOT_UUID=$(uuidgen)
 
 SCRIPTS_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 BUILD_DIR="$(realpath "${SCRIPTS_DIR}/../build")"
@@ -156,3 +155,5 @@ rm -f "${ESP_FILE}"
 rm -f "${ROOT_IMG_FILE}"
 rm -f "${BOOT_IMG_FILE}"
 rm -rf "${TMP_DIR}"
+
+log "Done. EFI_UUID: ${EFI_UUID}"
