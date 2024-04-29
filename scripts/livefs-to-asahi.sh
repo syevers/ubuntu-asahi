@@ -149,6 +149,7 @@ cp "${BOOT_IMG_FILE}" "${TMP_DIR}/boot.img"
 log "Compressing"
 rm -f "${ROOT_IMG_FILE}.zip"
 ( cd "${TMP_DIR}"; zip -1 -r "${ROOT_IMG_FILE}.zip" * )
+echo "${EFI_UUID}" > "${ROOT_IMG_FILE}.uuid"
 
 log "Cleaning up"
 rm -rf "${MNT_DIR}"
@@ -157,4 +158,4 @@ rm -f "${ROOT_IMG_FILE}"
 rm -f "${BOOT_IMG_FILE}"
 rm -rf "${TMP_DIR}"
 
-log "Done. EFI_UUID: ${EFI_UUID}"
+log "Done."
