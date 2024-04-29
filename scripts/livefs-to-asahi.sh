@@ -15,7 +15,7 @@ MNT_DIR="${BUILD_DIR}/mnt"
 TMP_DIR="/tmp/ubuntu-asahi.build/"
 
 BOOT_IMG_FILE="${BUILD_DIR}/ubuntu.boot.img"
-ROOT_IMG_FILE="${BUILD_DIR}/ubuntu.disk.img"
+ROOT_IMG_FILE="${BUILD_DIR}/kubuntu-desktop-23.10-$(date +%Y%m%d)"
 LIVE_IMG_FILE="${BUILD_DIR}/ubuntu.live.img"
 ESP_FILE=${BUILD_DIR}/ubuntu.efi.img
 
