@@ -10,7 +10,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # For flavors we might need to remove some packages
 # XXX: Don't remove grub
-sed -i '/^grub/d' livecd.*.manifest-remove
+sed -i '/^grub/d' livecd.*.manifest-remove || true
 if find livecd.*.manifest-remove -quit; then
 	xargs apt-get --yes purge < livecd.*.manifest-remove
 fi
