@@ -83,6 +83,13 @@ if find "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.*.squashfs -quit; then
 	unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.squashfs
 	unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.squashfs
 	# unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.en.squashfs
+elif find "${ARTIFACT_DIR}"/livecd.ubuntu-server-asahi.ubuntu-server-minimal.ubuntu-server.squashfs -quit; then
+	# ubuntu-server
+	log "Found ubuntu-server. Copying to disk..."
+	unsquashfs -f -no-exit -d "${MNT_DIR}" \
+	    "${ARTIFACT_DIR}"/livecd.ubuntu-server-asahi.ubuntu-server-minimal.squashfs
+	unsquashfs -f -no-exit -d "${MNT_DIR}" \
+	    "${ARTIFACT_DIR}"/livecd.ubuntu-server-asahi.ubuntu-server-minimal.ubuntu-server.squashfs
 elif find "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.squashfs -quit; then
 	# Flavors and older Ubuntu releases use stacked squashfs and ship kernel + initrd in extra files
 	log "Copying to disk"
