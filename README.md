@@ -1,11 +1,24 @@
 # Ubuntu Apple Silicon Image
 
-This repository contains scripts to compile native Ubuntu images for
-Apple silicon hardware such as the Apple M1 and M2.
+<p align="center">
+  <img src="https://github.com/UbuntuAsahi/media/blob/main/logo/logo-128.png" alt="Ubuntu Asahi Logo" />
+</p>
+
+This repository contains scripts to build native Ubuntu images for Apple
+silicon hardware such as the Apple M1 and M2.
+
+Most of our code has moved to
+packages nowadays which are available under our
+[Ubuntu Asahi launchpad team](https://launchpad.net/~ubuntu-asahi).
+The scripts in this repository can be used to start launchpad
+[livefs builds](https://dev.launchpad.net/Soyuz/LiveFilesystems) from
+our Ubuntu Asahi PPA and convert their output into a zip archive suitable
+for the [Asahi Installer](https://github.com/AsahiLinux/asahi-installer).
 
 ## Hosted Installer
 
-To install a prebuilt image run:
+If you are interested in running Ubuntu Asahi on your machine, here is how you
+can install one of our pre-built images. In your macos terminal run:
 
 ```
 curl -sL https://ubuntuasahi.org/install > install.sh	# Download
@@ -19,7 +32,8 @@ or if you like to live dangerously:
 curl -sL https://ubuntuasahi.org/install | bash
 ```
 
-The installer offers a choice of different Ubuntu releases and build configurations.
+The installer is interactive and offers a choice of different Ubuntu releases and
+build configurations.
 
 Currently supported are:
 
