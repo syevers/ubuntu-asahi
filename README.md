@@ -62,6 +62,15 @@ container to the full size.
 A detailed guide is provided in the
 [Asahi Linux Wiki](https://github.com/AsahiLinux/docs/wiki/Partitioning-cheatsheet).
 
+## More questions?
+
+Join us on IRC or Matrix!
+`#ubuntu-asahi` on [OFTC](https://www.oftc.net/) or `#_oftc_#ubuntu-asahi:matrix.org`.
+
+For more infos you can also check our website [ubuntuasahi.org](https://ubuntuasahi.org)
+and follow us on Mastodon at
+[@ubuntuasahi@treehouse.systems](https://social.treehouse.systems/@ubuntuasahi).
+
 ### Related Projects
 
 - [Asahi Linux](https://asahilinux.org/)
