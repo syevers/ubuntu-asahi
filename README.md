@@ -23,6 +23,7 @@ The installer offers a choice of different Ubuntu releases and build configurati
 
 Currently supported are:
 
+- Ubuntu Desktop 24.04
 - Ubuntu Desktop 23.10
 
 The default username and password are both **ubuntu**. Root access can be achieved via `sudo`.
