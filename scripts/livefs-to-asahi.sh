@@ -42,6 +42,12 @@ function cleanup {
 	do
 		sudo losetup --detach "$LODEV"
 	done
+
+	rm -rf "${MNT_DIR}"
+	rm -f "${ESP_FILE}"
+	rm -f "${ROOT_IMG_FILE}"
+	rm -f "${BOOT_IMG_FILE}"
+	rm -rf "${TMP_DIR}"
 }
 trap cleanup EXIT
 
@@ -81,8 +87,10 @@ if find "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.*.squashfs -quit; then
 	log "Copying to disk"
 	unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.install.squashfs
 	unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.squashfs
+	# unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.no-languages.squashfs
 	unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.squashfs
-	# unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.en.squashfs
+	# unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.no-languages.squashfs
+	# unsquashfs -f -d "${MNT_DIR}" "${ARTIFACT_DIR}"/livecd.ubuntu-asahi.minimal.standard.live.squashfs
 elif find "${ARTIFACT_DIR}"/livecd.ubuntu-server-asahi.ubuntu-server-minimal.ubuntu-server.squashfs -quit; then
 	# ubuntu-server
 	log "Found ubuntu-server. Copying to disk..."
@@ -152,6 +160,9 @@ umount -Rf "${MNT_DIR}"
 log "Packing disk"
 cp "${ROOT_IMG_FILE}" "${TMP_DIR}/root.img"
 cp "${BOOT_IMG_FILE}" "${TMP_DIR}/boot.img"
+
+log "Adding logo"
+png2icns "${TMP_DIR}/logo.icns" "${SCRIPTS_DIR}/../media/logo/logo-256.png"
 
 log "Compressing"
 rm -f "${ROOT_IMG_FILE}.zip"
