@@ -1,4 +1,4 @@
-# Ubuntu Apple Silicon Image
+# Ubuntu for Apple Silicon
 
 <p align="center">
   <img src="https://github.com/UbuntuAsahi/media/blob/main/logo/logo-128.png" alt="Ubuntu Asahi Logo" />
