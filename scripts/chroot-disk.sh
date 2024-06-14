@@ -20,13 +20,6 @@ mkdir -p /boot/efi/esp
 grub-install --target=arm64-efi --efi-directory=/boot/efi/esp
 grub-mkconfig -o /boot/grub/grub.cfg
 
-log "Adding user ubuntu"
-useradd ubuntu -s /bin/bash -m -G adm,dialout,cdrom,sudo,dip,plugdev
-chpasswd << 'END'
-ubuntu:ubuntu
-END
-usermod -L root
-
 # Clean up any left-behind crap, such as tempfiles and machine-id.
 log "Cleaning up data..."
 rm -rf /tmp/*
