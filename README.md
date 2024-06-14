@@ -65,6 +65,5 @@ A detailed guide is provided in the
 ### Related Projects
 
 - [Asahi Linux](https://asahilinux.org/)
-- [Pop_OS! arm64](https://github.com/pop-os/pop-arm64/)
-- [m1-debian](https://git.zerfleddert.de/cgi-bin/gitweb.cgi/m1-debian)
-- [asahi-fedora-builder](https://github.com/leifliddy/asahi-fedora-builder)
+- [Fedora Asahi Remix](https://fedora-asahi-remix.org/)
+- [Debian Bananas Team](https://wiki.debian.org/Teams/Bananas)
