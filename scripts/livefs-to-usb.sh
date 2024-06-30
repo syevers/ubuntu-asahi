@@ -2,7 +2,7 @@
 
 set -e
 
-EFI_UUID=$(uuidgen | tr '[a-z]' '[A-Z]' | cut -c1-8 | fold -w4 | paste -sd '-')
+EFI_UUID=$(uuidgen | tr -d '-' | cut -c1-8)
 ROOT_UUID=$(uuidgen)
 BOOT_UUID=$(uuidgen)
 
@@ -59,7 +59,7 @@ parted -s "${LIVE_IMG_FILE}" set 1 esp on
 LIVE_LOOP_DEV=$(losetup --find --show --partscan "${LIVE_IMG_FILE}")
 
 log "Creating file systems"
-mkfs.vfat -F32 "${LIVE_LOOP_DEV}p1"
+mkfs.vfat -F32 -i "${EFI_UUID}" "${LIVE_LOOP_DEV}p1"
 mkfs.ext4 -O '^metadata_csum,^orphan_file' -U "${BOOT_UUID}" -L "ubuntu-boot" "${LIVE_LOOP_DEV}p2"
 mkfs.ext4 -O '^metadata_csum,^orphan_file' -U "${ROOT_UUID}" -L "ubuntu-root" "${LIVE_LOOP_DEV}p3"
 
@@ -126,4 +126,4 @@ arch-chroot ${MNT_DIR} /chroot-disk.sh
 rm -f "${MNT_DIR}/chroot-disk.sh"
 rm -f "${MNT_DIR}"/livecd.*.manifest-remove
 
-log "Done. EFI_UUID: ${EFI_UUID}"
+log "Done."
