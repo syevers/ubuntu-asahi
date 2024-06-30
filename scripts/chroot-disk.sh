@@ -16,8 +16,7 @@ if find livecd.*.manifest-remove -quit; then
 fi
 
 log "Installing grub"
-mkdir -p /boot/efi/esp
-grub-install --target=arm64-efi --efi-directory=/boot/efi/esp
+grub-install --target=arm64-efi --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Clean up any left-behind crap, such as tempfiles and machine-id.

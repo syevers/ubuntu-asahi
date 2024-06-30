@@ -144,8 +144,8 @@ m1n1="${MNT_DIR}/usr/lib/m1n1/m1n1.bin"
 uboot="${MNT_DIR}/usr/lib/u-boot-asahi/u-boot-nodtb.bin"
 dtbs="${MNT_DIR}/lib/firmware/*/device-tree/apple/*.dtb"
 
-mkdir -p "${MNT_DIR}"/boot/efi/esp/m1n1
-target="${MNT_DIR}/boot/efi/esp/m1n1/boot.bin"
+mkdir -p "${MNT_DIR}"/boot/efi/EFI/m1n1
+target="${MNT_DIR}/boot/efi/EFI/m1n1/boot.bin"
 cat ${m1n1} ${dtbs} \
     <(gzip -c ${uboot}) \
     >"${target}"
